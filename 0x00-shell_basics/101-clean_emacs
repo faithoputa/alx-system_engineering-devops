@@ -1,2 +1,2 @@
-#!.bib.bash
+#!/bin/bash
 101-clean_emacs
