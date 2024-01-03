@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Get all network interfaces
+interfaces=$(ls /sys/class/net)
+
+for interface in $interfaces
+do
+  # Get the IPv4 address for each interface
+  ip=$(ip -4 -o addr show $interface | awk '{print $4}')
+
+  # If the interface has an IPv4 address, print it
+  if [ ! -z "$ip" ]
+  then
+    echo "Interface: $interface"
+    echo "IPv4 Address: $ip"
+    echo ""
+  fi
+done
