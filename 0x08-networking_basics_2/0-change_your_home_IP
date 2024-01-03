@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#localhost resolves to 127.0.0.2
+#facebook.com resolves to 8.8.8.8.
+
+# Backup the original hosts file
+cp /etc/hosts /etc/hosts.bak
+
+# Add the new DNS resolutions
+echo "127.0.0.2 localhost" >> /etc/hosts
+echo "8.8.8.8 facebook.com" >> /etc/hosts
+
+# Display the new hosts file
+cat /etc/hosts
+
