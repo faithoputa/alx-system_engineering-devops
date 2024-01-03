@@ -1,0 +1,4 @@
+A regular expression, often shortened to regex or regexp, is a sequence of characters that forms a search pattern. This pattern can be used by string-searching algorithms for "find" or "find and replace" operations on strings, or for input validation¹. Regular expressions are used in search engines, in search and replace dialogs of word processors and text editors, in text processing utilities such as sed and AWK, and in lexical analysis¹. They are also supported in many programming languages¹. The concept of regular expressions began in the 1950s, when the American mathematician Stephen Cole Kleene formalized the concept of a regular language¹. They came into common use with Unix text-processing utilities¹. 
+
+In summary, regular expressions are powerful tools for pattern matching and text manipulation in computing. They have a rich history and are widely used in various applications today.
+Author: Faith Oputa (borntwisted)
