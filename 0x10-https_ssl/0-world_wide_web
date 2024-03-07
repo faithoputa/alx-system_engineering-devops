@@ -1,0 +1,37 @@
+#!/bin/bash
+# This Bash script displays information about subdomains.
+
+# Define a function to get the IP address of a subdomain.
+function get_ip() {
+  local subdomain="$1"
+  local domain="$2"
+  local ip=$(dig +short "$subdomain.$domain" A)
+  echo "$ip"
+}
+
+# Define a function to get the record type of a subdomain.
+function get_record_type() {
+  local subdomain="$1"
+  local domain="$2"
+  local record_type=$(dig +short "$subdomain.$domain" ANY | awk '{print $3}')
+  echo "$record_type"
+}
+
+# Get the domain name from the first argument.
+domain="$1"
+
+# If a subdomain was specified, get its information.
+if [ -n "$2" ]; then
+  subdomain="$2"
+  ip=$(get_ip "$subdomain" "$domain")
+  record_type=$(get_record_type "$subdomain" "$domain")
+  echo "The subdomain $subdomain is a $record_type record and points to $ip"
+else
+  # Otherwise, get information for the subdomains www, lb-01, web-01, and web-02.
+  for subdomain in www lb-01 web-01 web-02; do
+    ip=$(get_ip "$subdomain" "$domain")
+    record_type=$(get_record_type "$subdomain" "$domain")
+    echo "The subdomain $subdomain is a $record_type record and points to $ip"
+  done
+fi
+
